@@ -1,38 +1,54 @@
 .benefits-content__list {
-  @media screen and (min-width: 768px) {
+  @include tab {
     display: flex;
     flex-wrap: wrap;
+
+    @include desk {
+      flex-wrap: nowrap;
+    }
   }
 }
 
 .benefits-content__block {
-  @media screen and (min-width: 768px) {
-    flex-basis: calc((100% - 4 * 15px) / 2);
-    margin-right: 15px;
+  @include tab {
+    width: calc((100% - 2 * 15px) / 2);
+    &:nth-child(2n + 1) {
+      @include tab {
+        margin-right: 30px;
+      }
+    }
   }
 
-  @media screen and (min-width: 1200px) {
-    flex-basis: calc((100% - 8 * 15px) / 4);
-    margin-right: 15px;
+  @include desk {
+    width: calc((100% - 90px) / 4);
+    margin-right: 30px;
   }
 }
 
 .benefits-content__link {
   display: flex;
-  width: 450px;
-  height: 120px;
+  max-width: 450px;
+  padding: 25px 0 25px;
   background-color: #f5f4fa;
+
   justify-content: center;
   align-items: center;
   border-radius: 4px;
   margin-bottom: 30px;
 
-  @media screen and (min-width: 768px) {
+  @include mob {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include tab {
+    // margin-top: 30px;
     width: 354px;
   }
 
-  @media screen and (min-width: 1200px) {
-    width: 270px;
+  @include desk {
+    max-width: 270px;
+    margin: 0;
   }
 }
 
@@ -44,7 +60,19 @@ h3 {
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--title-color);
+
   margin-bottom: 10px;
+  align-items: center;
+  text-align: center;
+
+  @include tab {
+    text-align: left;
+  }
+
+  @include desk {
+    max-width: 270px;
+    margin-top: 30px;
+  }
 }
 
 .benefits-text__paragraph {
@@ -57,7 +85,17 @@ h3 {
   text-transform: none;
   font-weight: 400;
 
-  @media screen and (min-width: 768px) {
-    max-width: 354px;
+  &:nth-last-child(-n + 3) {
+    @include tab {
+      margin-bottom: 0px;
+    }
+  }
+
+  @include tab {
+    text-align: left;
+  }
+
+  @include desk {
+    max-width: 270px;
   }
 }
