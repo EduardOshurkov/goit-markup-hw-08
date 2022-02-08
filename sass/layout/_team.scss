@@ -1,4 +1,5 @@
 .team {
+  flex-wrap: wrap;
   background-color: #f5f4fa;
 }
 
@@ -10,22 +11,35 @@
   letter-spacing: 0.03em;
   color: var(--title-color);
 
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+
+  @include desk {
+    margin-bottom: 50px;
+  }
 }
 
 .team-info {
-  display: flex;
+  flex-wrap: wrap;
+  @include desk {
+    display: flex;
+  }
 }
 
 .team-info__list {
-  margin-right: 30px;
+  align-items: center;
+  text-align: center;
   background-color: var(--first-color);
   border-radius: 0px 0px 4px 4px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
 
-  &:nth-child(4n) {
-    margin-right: 0;
+  margin-bottom: 30px;
+
+  @include desk {
+    margin-right: 30px;
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
   }
 }
 
@@ -61,7 +75,7 @@
 
 .social-content__link {
   margin-top: 16px;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
   width: 44px;
   height: 44px;
   background-color: var(--first-color);
@@ -77,6 +91,10 @@
     color: var(--first-color);
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @include desk {
+    margin-bottom: 30px;
   }
 }
 
